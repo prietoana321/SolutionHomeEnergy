@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SystemHomeEnergy.DTO\SystemHomeEnergy.DTO.csproj" />
+    <ProjectReference Include="..\SystemHomeEnergy.MODELS\SystemHomeEnergy.MODELS.csproj" />
+  </ItemGroup>
+
 </Project>

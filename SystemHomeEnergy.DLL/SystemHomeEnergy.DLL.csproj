@@ -1,9 +1,16 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SystemHomeEnergy.DALL\SystemHomeEnergy.DALL.csproj" />
+    <ProjectReference Include="..\SystemHomeEnergy.DTO\SystemHomeEnergy.DTO.csproj" />
+    <ProjectReference Include="..\SystemHomeEnergy.MODELS\SystemHomeEnergy.MODELS.csproj" />
+    <ProjectReference Include="..\SystemHomeEnergy.UTILITY\SystemHomeEnergy.UTILITY.csproj" />
+  </ItemGroup>
 
 </Project>
