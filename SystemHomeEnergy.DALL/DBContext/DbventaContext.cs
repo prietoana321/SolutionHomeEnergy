@@ -10,10 +10,7 @@ using SystemHomeEnergy;
 
 namespace SystemHomeEnergy.DALL.DBContext
 {
-    public partial class DbventaContext : DbContext
+    public partial class DbventaContext
     {
-        public DbventaContext()
-        {
-        }
     }
 }
