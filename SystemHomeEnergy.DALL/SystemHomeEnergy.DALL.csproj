@@ -10,8 +10,4 @@
     <ProjectReference Include="..\SystemHomeEnergy.MODELS\SystemHomeEnergy.MODELS.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositorios\Contrato\" />
-  </ItemGroup>
-
 </Project>
