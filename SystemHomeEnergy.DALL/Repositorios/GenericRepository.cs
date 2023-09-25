@@ -31,9 +31,18 @@ namespace SystemHomeEnergy.DALL.Repositorios
             catch { throw; }
         }
 
-        public Task<TModelo> Crear(TModelo modelo)
+        public async Task<TModelo> Crear(TModelo modelo)
         {
-            throw new NotImplementedException();
+            /// USAMOS LA BASE DE DATOS Y ESTABLECEMOS CON QUE MODELO VAMOS A ESTAR UTILIZANDO, PASAMOS EL MODELO QUE ESTEMOS RECIBIENDO
+            try
+            {
+                _dbcontext.Set<TModelo>().Add(modelo);
+                //guardar cambios de manera asincrona asi:
+                await _dbcontext.SaveChangesAsync();
+                return modelo;
+            }
+            catch { throw; }
+            //throw new NotImplementedException();
         }
 
         public Task<bool> Editar(TModelo modelo)
