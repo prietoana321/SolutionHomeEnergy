@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SystemHomeEnergy.DALL.Repositorios.Contrato;
 using SystemHomeEnergy.MODELS;
 
+
 namespace SystemHomeEnergy.DALL.Repositorios
 {
     public class GenericRepository<TModelo>:IGenericRepository<TModelo> where TModelo : class
@@ -46,6 +47,11 @@ namespace SystemHomeEnergy.DALL.Repositorios
         }
 
         public Task<TModelo> Obtener(Expression<Func<TModelo, bool>> filtro)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IQueryable<TModelo>> IGenericRepository<TModelo>.Consultar(Expression<Func<TModelo, bool>> filtro)
         {
             throw new NotImplementedException();
         }

@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace SystemHomeEnergy.DALL.Repositorios.Contrato
 {
-    public interface IVentaRepository:IGenericRepository<Venta>
+    public interface IVentaRepository:IGenericRepository<Cotizacion>
     {
-        Task<Venta> Registrar(Venta modelo);
+        Task<Cotizacion> Registrar(Cotizacion modelo);
     
     }
 }
