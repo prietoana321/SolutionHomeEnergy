@@ -62,8 +62,8 @@ namespace SystemHomeEnergy.DALL.Repositorios
                     throw;
                 }
                 return cotizacionGenerada;
-            }
+         }
             //  throw new NotImplementedException();
-        }
-    }
-}
+     }
+ }
+
