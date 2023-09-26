@@ -26,10 +26,7 @@ namespace SystemHomeEnergy.DALL.Repositorios
             Cotizacion cotizacionGenerada = new();
             //si dentro de la logica ocurre un error la linea siguiente tiene que reestablecer todo al principio
             using (var transaction = _dbContext.Database.BeginTransaction())
-                LIeihdihiifuhiu
-
-                    fdisuuchujhgduygcuygcduyvytgcdvavuvfdutf
-            {
+                
                 try
                 {
                     foreach (MODELS.Contrato dv in modelo.Contrato)
