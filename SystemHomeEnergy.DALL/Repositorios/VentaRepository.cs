@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Abstractions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,7 @@ namespace SystemHomeEnergy.DALL.Repositorios
             {
                 try
                 {
-                    foreach (Cotizacion dv in modelo.Contrato)
+                    foreach (MODELS.Contrato dv in modelo.Contrato)
                     {
                         Servicio servicio_encontrado = _dbContext.Servicios.Where(p => p.IdServicio == dv.IdCotizacion).First();
                         _dbContext.Servicios.Update(servicio_encontrado);

@@ -26,4 +26,6 @@ public partial class Contrato
     public virtual Cotizacion? IdCotizacionNavigation { get; set; }
 
     public virtual Servicio? IdServicio5Navigation { get; set; }
+
+
 }

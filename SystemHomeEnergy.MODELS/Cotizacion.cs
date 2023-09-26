@@ -25,8 +25,6 @@ public partial class Cotizacion
 
     public decimal? Total { get; set; }
 
-    public string? Contrato { get; set; }
-
     public string? Socein { get; set; }
 
     public string? Tamañosistema { get; set; }
@@ -47,11 +45,13 @@ public partial class Cotizacion
 
     public DateTime? FechaRegistro { get; set; }
 
-    public virtual ICollection<Contrato> Contratos { get; } = new List<Contrato>();
+    public virtual ICollection<Contrato?> Contrato { get; } = new List<Contrato>();
 
     public virtual Estado? IdEstado1Navigation { get; set; }
 
-    public virtual ICollection<ServicioCotizacion> ServicioCotizacions { get; } = new List<ServicioCotizacion>();
+    public virtual ICollection<ServicioCotizacion?> ServicioCotizacions { get; } = new List<ServicioCotizacion>();
 
-    public virtual ICollection<UsuarioCotizacion> UsuarioCotizacions { get; } = new List<UsuarioCotizacion>();
+    public virtual ICollection<UsuarioCotizacion?> UsuarioCotizacions { get; } = new List<UsuarioCotizacion>();
+  
+
 }
