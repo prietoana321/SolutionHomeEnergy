@@ -27,6 +27,8 @@ namespace SystemHomeEnergy.DALL.Repositorios
             //si dentro de la logica ocurre un error la linea siguiente tiene que reestablecer todo al principio
             using (var transaction = _dbContext.Database.BeginTransaction())
                 LIeihdihiifuhiu
+
+                    fdisuuchujhgduygcuygcduyvytgcdvavuvfdutf
             {
                 try
                 {
