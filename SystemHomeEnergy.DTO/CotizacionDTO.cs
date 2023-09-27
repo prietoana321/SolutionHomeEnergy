@@ -45,5 +45,10 @@ namespace SystemHomeEnergy.DTO
         public bool? EsActivo { get; set; }
 
         public int? Plazoconsumo { get; set; }
+
+        public int IdUsuario1 { get; set; }
+        public int IdUsuario2 { get; set; }
+        public int IdUsuario3 { get; set; }
+
     }
 }
