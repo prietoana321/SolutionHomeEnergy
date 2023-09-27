@@ -8,8 +8,8 @@ namespace SystemHomeEnergy.DTO
 {
     public class RazonDTO
     {
-        public int IdCotizacion { get; set; }
-        public string Razon { get; set; }
-        public int IdEstado { get; set; }
+        public int? IdCotizacion { get; set; }
+        public string? Razon { get; set; }
+        public int? IdEstado { get; set; }
     }
 }

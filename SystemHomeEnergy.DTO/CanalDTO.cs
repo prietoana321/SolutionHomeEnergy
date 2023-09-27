@@ -8,5 +8,7 @@ namespace SystemHomeEnergy.DTO
 {
     public class CanalDTO
     {
+        public int? IdCanal { get; set; }
+        public string? Nombre { get; set; }
     }
 }
