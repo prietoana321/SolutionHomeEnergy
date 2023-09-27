@@ -42,6 +42,8 @@ namespace SystemHomeEnergy.DTO
 
         public int? IdEstado1 { get; set; }
 
+        public string Estado { get; set; }
+
         public bool? EsActivo { get; set; }
 
         public int? Plazoconsumo { get; set; }
