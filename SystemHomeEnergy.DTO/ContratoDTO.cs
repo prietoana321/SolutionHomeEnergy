@@ -15,7 +15,10 @@ namespace SystemHomeEnergy.DTO
         public int? IdServicio5 { get; set; }
 
         public int? Cantidad { get; set; }
+        public string? DescripcionServicio { get; set; }
 
+        public string? PrecioTexto { get; set; }
+        public string? TotalTexto { get; set; }
         public string? Documento { get; set; }
 
         public string? Url { get; set; }
