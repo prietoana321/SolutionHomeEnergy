@@ -42,7 +42,7 @@ namespace SystemHomeEnergy.DTO
 
         public int? IdEstado1 { get; set; }
 
-        public string Estado { get; set; }
+        public string DescripcionEstado { get; set; }
 
         public bool? EsActivo { get; set; }
 
