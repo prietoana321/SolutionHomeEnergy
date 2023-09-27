@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SystemHomeEnergy.DTO
 {
-    internal class UsurioDTO
+    public class UsuarioDTO
     {
         public int IdUsuario { get; set; }
 
