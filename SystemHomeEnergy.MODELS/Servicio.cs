@@ -11,8 +11,6 @@ public partial class Servicio
 
     public int? IdCategoria { get; set; }
 
-    public string? DescripcionCategoria { get; set; }
-
     public decimal? Precio { get; set; }
 
     public bool? EsActivo { get; set; }

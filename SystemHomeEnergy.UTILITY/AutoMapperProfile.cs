@@ -87,6 +87,17 @@ namespace SystemHomeEnergy.UTILITY
                 opt => opt.MapFrom(origen => Convert.ToDecimal(origen.TotalTexto, new CultureInfo("es-CO")))
                 );
 
+                CreateMap<Usuario, CotizacionDTO>()
+
+                .ForMember(destino => 
+                destino.IdUsuario1, opt => opt.MapFrom(origen => origen.UsuarioCotizacions))
+
+                .ForMember(destino =>
+                destino.IdUsuario2, opt => opt.MapFrom(origen => origen.UsuarioCotizacions))
+
+                .ForMember(destino =>
+                destino.IdUsuario3, opt => opt.MapFrom(origen => origen.UsuarioCotizacions));
+
             #endregion
             #region Contrato
             CreateMap<Contrato, ContratoDTO>()
@@ -114,23 +125,9 @@ namespace SystemHomeEnergy.UTILITY
 
             #endregion
             #region
-            CreateMap<Cliente, ClienteDTO>()
+            CreateMap<Cliente, ClienteDTO>().ReverseMap();
 
-            .ForMember(destino => destino.Idauditor,
-                opt => opt.MapFrom(origen => origen.UsuarioClientes)
-                )
-
-
-            .ForMember(destino => destino.Detalle,
-            opt => opt.MapFrom(origen => origen.Idauditor)
-            )
-
-            .ForMember(destino =>
-            destino.EsActivo,
-            opt => opt.MapFrom(origen => origen.EsActivo == true ? 1 : 0));
-
-
-            CreateMap<ClienteDTO, Cliente>()
+            /*CreateMap<ClienteDTO, Cliente>()
 
                  .ForMember(destino => destino.UsuarioClientes, opt => opt.MapFrom(origen => origen.Idauditor)
                 )
@@ -139,7 +136,7 @@ namespace SystemHomeEnergy.UTILITY
             )
                 .ForMember(destino =>
             destino.EsActivo,
-            opt => opt.MapFrom(origen => origen.EsActivo == true));
+            opt => opt.MapFrom(origen => origen.EsActivo == true));*/
             //.ForMember(destino => destino.Detalle,
             /// opt => opt.MapFrom(origen => origen.IdCliente) //.ForMember(destino => destino.DescripcionProducto,
             ////opt => opt.MapFrom(origen => origen.IdProductoNavigation.Nombre)
@@ -148,8 +145,8 @@ namespace SystemHomeEnergy.UTILITY
             #endregion
             #region Prospecto
 
-            CreateMap<Prospecto,ProspectoDTO>()
-                 .ForMember(destino => destino.NombreCompleto,
+            CreateMap<Prospecto, ProspectoDTO>().ReverseMap();
+            /*     .ForMember(destino => destino.NombreCompleto,
                 opt => opt.MapFrom(origen => origen.Idauditor))
 
             
@@ -165,43 +162,56 @@ namespace SystemHomeEnergy.UTILITY
                 .ForMember(destino =>
             destino.EsActivo,
             opt => opt.MapFrom(origen => origen.EsActivo == true));
-
+            */
             #endregion
-
-            #region Prospecto-Cliente
-
-            CreateMap<Prospecto, ClienteDTO>()
-                 .ForMember(destino =>
-                destino.IdCliente,
-                opt => opt.MapFrom(origen => origen.IdProspecto));
-
-            #endregion Prospecto-Cliente
-
-
-
 
             #region Estado
 
             CreateMap<Estado, EstadoDTO>().ReverseMap();
-
-            #endregion Estado
-
-            #region Estado-Cotizacion
-            CreateMap<Estado, CotizacionDTO>()
-
-            .ForMember(destino => destino.DescripcionEstado,
+            #endregion
+            /*#region Abierto-Estado
+            CreateMap<Estado, AbiertoDTO>()
+                .ForMember(destino => destino.Notas,
                 opt => opt.MapFrom(origen => origen.IdEstado));
 
-            #endregion Estado-Cotizacion
 
-            #region Menu
+            CreateMap<AbiertoDTO,Estado>()
+                .ForMember(destino => destino.IdEstado,
+                opt => opt.MapFrom(origen => origen.Notas)
+                );
 
-            CreateMap<Estado,AbiertoDTO>()
-                .ForMember(destino => destino.IdEstado1,
+            #endregion
+
+            #region Cerrada-Estado
+            CreateMap<Estado, CerradaDTO>()
+                .ForMember(destino => destino.Notas,
+                opt => opt.MapFrom(origen => origen.IdEstado));
+
+
+            CreateMap<CerradaDTO,Estado>()
+                .ForMember(destino => destino.IdEstado,
+                opt => opt.MapFrom(origen => origen.Notas)
+                );
+
+            #endregion Estado-Cerrada*/
+
+
+            /*#region Canal
+
+            CreateMap<Estado, RazonDTO>()
+                .ForMember(destino => destino.IdCotizacion,
                 opt => opt.MapFrom(origen => origen.IdEstado)
                 );
 
-            #endregion Estado
+            #endregion Canal
+
+            CreateMap<CanalDTO, Estado>()
+               .ForMember(destino => destino.IdEstado,
+               opt => opt.MapFrom(origen => origen.IdCanal)
+               );
+            */
+         
+
         }
     }
 }
