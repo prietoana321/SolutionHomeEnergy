@@ -11,9 +11,9 @@ using SystemHomeEnergy.DALL;
 
 namespace SystemHomeEnergy.DALL.Repositorios.Contrato
 {
-    public interface IVentaRepository:IGenericRepository<Cotizacion>
+    public interface IVentaRepository:IGenericRepository<Contratos>
     {
-        Task<Cotizacion> Registrar(Cotizacion modelo);
+        Task<Contratos> Registrar(Contratos modelo);
     
     }
 }

@@ -11,7 +11,7 @@ using SystemHomeEnergy.MODELS;
 
 namespace SystemHomeEnergy.DALL.Repositorios
 {
-    public class VentaRepository: GenericRepository<Cotizacion>, IVentaRepository
+    public class VentaRepository: GenericRepository<Contratos>, IVentaRepository
     {
         private readonly BdhomeEnergyContext _dbContext;
 
@@ -20,10 +20,10 @@ namespace SystemHomeEnergy.DALL.Repositorios
             _dbContext = dbContext;
         }
 
-        public async Task<Cotizacion> Registrar(Cotizacion modelo)
+        public async Task<Contratos> Registrar(Contratos modelo)
         {
             //CREAMOS UNA VARIABLE
-            Cotizacion cotizacionGenerada = new();
+            Contratos cotizacionGenerada = new();
             //si dentro de la logica ocurre un error la linea siguiente tiene que reestablecer todo al principio
             using (var transaction = _dbContext.Database.BeginTransaction())
                 

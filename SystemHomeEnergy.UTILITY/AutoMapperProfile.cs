@@ -72,7 +72,7 @@ namespace SystemHomeEnergy.UTILITY
             #endregion Servicio
 
             #region Cotizacion
-            CreateMap<Cotizacion, CotizacionDTO>()
+            CreateMap<Contratos, CotizacionDTO>()
                 .ForMember(destino =>
                 destino.TotalTexto,
                 opt => opt.MapFrom(origen => Convert.ToString(origen.Total.Value, new CultureInfo("es-CO")))
@@ -81,7 +81,7 @@ namespace SystemHomeEnergy.UTILITY
                 destino.FechaRegistro,
                 opt => opt.MapFrom(origen => origen.FechaRegistro.Value.ToString("dd/MM/yyyy"))
                 );
-            CreateMap<CotizacionDTO, Cotizacion>()
+            CreateMap<CotizacionDTO, Contratos>()
                 .ForMember(destino =>
                 destino.Total,
                 opt => opt.MapFrom(origen => Convert.ToDecimal(origen.TotalTexto, new CultureInfo("es-CO")))

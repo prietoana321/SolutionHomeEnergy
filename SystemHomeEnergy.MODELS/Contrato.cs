@@ -23,7 +23,7 @@ public partial class Contrato
 
     public decimal? Total { get; set; }
 
-    public virtual Cotizacion? IdCotizacionNavigation { get; set; }
+    public virtual Contratos? IdCotizacionNavigation { get; set; }
 
     public virtual Servicio? IdServicio5Navigation { get; set; }
 

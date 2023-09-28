@@ -11,7 +11,7 @@ public partial class ServicioCotizacion
 
     public int? IdCotizacion2 { get; set; }
 
-    public virtual Cotizacion? IdCotizacion2Navigation { get; set; }
+    public virtual Contratos? IdCotizacion2Navigation { get; set; }
 
     public virtual Servicio? IdServicio1Navigation { get; set; }
 }

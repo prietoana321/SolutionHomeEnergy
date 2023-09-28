@@ -21,7 +21,7 @@ public partial class BdhomeEnergyContext : DbContext
 
     public virtual DbSet<Contrato> Contratos { get; set; }
 
-    public virtual DbSet<Cotizacion> Cotizacions { get; set; }
+    public virtual DbSet<Contratos> Cotizacions { get; set; }
 
     public virtual DbSet<Estado> Estados { get; set; }
 
@@ -143,16 +143,16 @@ public partial class BdhomeEnergyContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("url");
 
-            entity.HasOne(d => d.IdCotizacionNavigation).WithMany(p => p.Contratos)
+            entity.HasOne(d => d.IdCotizacionNavigation).WithMany(p => p.Contrato)
                 .HasForeignKey(d => d.IdCotizacion)
                 .HasConstraintName("FK__Contrato__idCoti__6A30C649");
 
-            entity.HasOne(d => d.IdServicio5Navigation).WithMany(p => p.Contratos)
+            entity.HasOne(d => d.IdServicio5Navigation).WithMany(p => p.Contrato)
                 .HasForeignKey(d => d.IdServicio5)
                 .HasConstraintName("FK__Contrato__idServ__6B24EA82");
         });
 
-        modelBuilder.Entity<Cotizacion>(entity =>
+        modelBuilder.Entity<Contratos>(entity =>
         {
             entity.HasKey(e => e.IdCotizacion).HasName("PK__Cotizaci__D931C39B754BE659");
 

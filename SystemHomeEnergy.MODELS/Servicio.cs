@@ -19,7 +19,7 @@ public partial class Servicio
 
     public DateTime? FechaRegistro { get; set; }
 
-    public virtual ICollection<Contrato> Contratos { get; } = new List<Contrato>();
+    public virtual ICollection<Contrato> Contrato { get; } = new List<Contrato>();
 
     public virtual Categoria? IdCategoriaNavigation { get; set; }
 

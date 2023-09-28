@@ -30,5 +30,6 @@ namespace SystemHomeEnergy.DTO
         public decimal? Total { get; set; }
 
 
+
     }
 }

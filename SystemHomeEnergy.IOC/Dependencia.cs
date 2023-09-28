@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using SystemHomeEnergy.MODELS;
 using SystemHomeEnergy.DALL.Repositorios.Contrato;
 using SystemHomeEnergy.DALL.Repositorios;
+using SystemHomeEnergy.UTILITY;
 
 
 namespace SystemHomeEnergy.IOC
@@ -24,6 +25,8 @@ namespace SystemHomeEnergy.IOC
             //en la siguiente linea utilizamos un modelo generico
             services.AddTransient(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<IVentaRepository,VentaRepository>();
+            services.AddAutoMapper(typeof(AutoMapperProfile));
+
 
         }
     }

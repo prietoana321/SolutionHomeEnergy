@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace SystemHomeEnergy.MODELS;
 
-public partial class Cotizacion
+public partial class Contratos
 {
     public int IdCotizacion { get; set; }
 
