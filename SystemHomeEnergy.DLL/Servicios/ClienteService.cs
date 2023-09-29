@@ -55,7 +55,7 @@ namespace SystemHomeEnergy.DLL.Servicios
             }
         }
 
-        public Task<bool> Editar(ClienteDTO modelo)
+        public async Task<bool> Editar(ClienteDTO modelo)
         {
 
             try
@@ -66,13 +66,18 @@ namespace SystemHomeEnergy.DLL.Servicios
                 {
                     throw new TaskCanceledException("Usuario no existe");
                 }
-                usuarioEncontrado.NombreCompleto = usuarioModelo.NombreCompleto;
-                usuarioEncontrado.Correo = usuarioModelo.Correo;
-                usuarioEncontrado.IdRol = usuarioModelo.IdRol;
-                usuarioEncontrado.Clave = usuarioModelo.Clave;
-                usuarioEncontrado.EsActivo = usuarioModelo.EsActivo;
+                
+                clienteEncontrado.Fachadaimg = clienteModelo.Fachadaimg;
+                clienteEncontrado.Url = clienteModelo.Url;
+                clienteEncontrado.NombreCompleto = clienteModelo.NombreCompleto;
+                clienteEncontrado.Direccion = clienteModelo.Direccion;
+                clienteEncontrado.Contacto = clienteModelo.Contacto;
+                clienteEncontrado.RazonSocial = clienteModelo.RazonSocial;
+                clienteEncontrado.Idauditor = clienteModelo.Idauditor;
+                clienteEncontrado.Detalle = clienteEncontrado.Detalle;
+                clienteEncontrado.EsActivo = clienteEncontrado.EsActivo;
 
-                bool respuesta = await _usuarioRepositorio.Editar(usuarioEncontrado);
+                 bool respuesta = await _clienteRepositorio.Editar(clienteEncontrado);
 
                 if (respuesta == false)
                 {
