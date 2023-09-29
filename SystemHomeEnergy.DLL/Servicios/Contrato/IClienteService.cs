@@ -9,7 +9,7 @@ namespace SystemHomeEnergy.DLL.Servicios.Contrato
 {
     public interface IClienteService
     {
-        Task<List<ClienteDTO>> lista();
+        Task<List<ClienteDTO>> Lista();
 
         Task<ClienteDTO> Crear(ClienteDTO modelo);
         Task<bool> Editar(ClienteDTO modelo);

@@ -10,7 +10,7 @@ namespace SystemHomeEnergy.DLL.Servicios.Contrato
 {
     public interface IProspectoService
     {
-        Task<List<Prospecto>> lista();
+        Task<List<Prospecto>> Lista();
         Task<ProspectoDTO> Crear(ProspectoDTO modelo);
         Task<bool> Editar(ProspectoDTO modelo);
         Task<bool> Eliminar(int Id);

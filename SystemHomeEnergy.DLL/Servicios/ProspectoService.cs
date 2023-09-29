@@ -37,7 +37,7 @@ namespace SystemHomeEnergy.DLL.Servicios
             throw new NotImplementedException();
         }
 
-        public Task<List<Prospecto>> lista()
+        public Task<List<Prospecto>> Lista()
         {
             throw new NotImplementedException();
         }
