@@ -64,7 +64,7 @@ namespace SystemHomeEnergy.DLL.Servicios
                 var clienteEncontrado = await _clienteRepositorio.Obtener(u => u.IdCliente == clienteModelo.IdCliente);
                 if (clienteEncontrado == null)
                 {
-                    throw new TaskCanceledException("Usuario no existe");
+                    throw new TaskCanceledException("Cliente no existe");
                 }
                 
                 clienteEncontrado.Fachadaimg = clienteModelo.Fachadaimg;
@@ -91,9 +91,26 @@ namespace SystemHomeEnergy.DLL.Servicios
             }
         }
 
-        public Task<bool> Eliminar(int Id)
+        public async Task<bool> Eliminar(int Id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var clienteEncontrado = await _clienteRepositorio.Obtener(v => v.IdCliente == Id);
+                if (clienteEncontrado == null)
+                {
+                    throw new TaskCanceledException("El cliente no existe");
+                }
+                bool respuesta = await _clienteRepositorio.Eliminar(clienteEncontrado);
+                if (respuesta == false)
+                {
+                    throw new TaskCanceledException("No se pudo eliminar");
+                }
+                return respuesta;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
        
