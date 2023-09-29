@@ -29,5 +29,7 @@ public partial class Cliente
 
     public DateTime? FechaRegistro { get; set; }
 
+    public virtual Prospecto? IdProspectoNavigation { get; set; }
+
     public virtual ICollection<UsuarioCliente> UsuarioClientes { get; } = new List<UsuarioCliente>();
 }
