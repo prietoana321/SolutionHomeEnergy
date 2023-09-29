@@ -14,22 +14,33 @@ namespace SystemHomeEnergy.DLL.Servicios
 {
     public class MenuService : IMenuService
     {
+        private readonly IGenericRepository<Usuario> _usuarioRepositorio;
+        private readonly IGenericRepository<MenuRol> _menuRolRepositorio;
         private readonly IGenericRepository<Menu> _menuRepositorio;
-        private readonly IMapper __mapper;
+        private readonly IMapper _mapper;
 
-        public MenuService(IGenericRepository<Menu> menuRepositorio, IMapper mapper)
+        public MenuService(IGenericRepository<Usuario> usuarioRepositorio, IGenericRepository<MenuRol> menuRolRepositorio, IGenericRepository<Menu> menuRepositorio, IMapper mapper)
         {
+            _usuarioRepositorio = usuarioRepositorio;
+            _menuRolRepositorio = menuRolRepositorio;
             _menuRepositorio = menuRepositorio;
-            __mapper = mapper;
+            _mapper = mapper;
         }
 
-        public async Task<List<MenuDTO>> lista(int IdMenu)
+        public async Task<List<MenuDTO>> Lista(int idUsuario)
         {
+            IQueryable<Usuario> tbUsuario = await _usuarioRepositorio.Consultar(u => u.IdUsuario == idUsuario);
+            IQueryable<MenuRol> tbMenuRol = await _menuRolRepositorio.Consultar();
+            IQueryable<Menu> tbMenu = await _menuRepositorio.Consultar();
+
             try
             {
-                var queryMenu = await _menuRepositorio.Consultar();
-                var listaMenu = queryMenu.Include(Menu => Menu.IdMenu).ToList();
-                return __mapper.Map<List<MenuDTO>>(listaMenu).ToList();
+                IQueryable<Menu> tbResultado = (from u in tbUsuario
+                                                join mr in tbMenuRol on u.IdRol equals mr.IdRol
+                                                join m in tbMenu on mr.IdMenu equals m.IdMenu
+                                                select m).AsQueryable();
+                var listaMenus = tbResultado.ToList();
+                return _mapper.Map<List<MenuDTO>>(listaMenus);
             }
             catch
             {

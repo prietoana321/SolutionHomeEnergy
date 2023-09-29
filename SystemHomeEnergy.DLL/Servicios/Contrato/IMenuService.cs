@@ -9,6 +9,6 @@ namespace SystemHomeEnergy.DLL.Servicios.Contrato
 {
     public interface IMenuService
     {
-        Task<List<MenuDTO>> lista(int IdMenu);
+        Task<List<MenuDTO>> Lista(int idUsuario);
     }
 }
