@@ -27,7 +27,7 @@ namespace SystemHomeEnergy.DTO
 
         public double? Consumosolar { get; set; }
         public string? PrecioTexto { get; set; }
-
+        
         public string? Total { get; set; }
 
         public string? Socein { get; set; }
