@@ -35,6 +35,48 @@ namespace SystemHomeEnergy.API.Controllers
             //TODAS LOS SOLICITUDES SERÁN RESPUESTAS EXITOSAS
             return Ok(rsp);
         }
+        [HttpPost]
+        [Route("IniciarSesion")]
+
+        public async Task<IActionResult> IniciarSesion([FromBody] loginDTO login)
+        {
+            var rsp = new Response<SesionDTO>();
+
+            try
+            {
+                rsp.Status = true;
+                rsp.Value = await _usuarioServicio.ValidarCredenciales(login.Correo, login.Clave);
+            }
+
+            catch (Exception ex)
+            {
+                rsp.Status = false;
+                rsp.msg = ex.Message;
+            }
+            //TODAS LOS SOLICITUDES SERÁN RESPUESTAS EXITOSAS
+            return Ok(rsp);
+        }
+        [HttpPost]
+        [Route("Guardar")]
+
+        public async Task<IActionResult> Guardar([FromBody] UsuarioDTO usuario)
+        {
+            var rsp = new Response<UsuarioDTO>();
+
+            try
+            {
+                rsp.Status = true;
+                rsp.Value = await _usuarioServicio.Crear(usuario);
+            }
+
+            catch (Exception ex)
+            {
+                rsp.Status = false;
+                rsp.msg = ex.Message;
+            }
+            //TODAS LOS SOLICITUDES SERÁN RESPUESTAS EXITOSAS
+            return Ok(rsp);
+        }
     }
 }
 
