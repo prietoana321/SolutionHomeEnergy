@@ -10,7 +10,9 @@ using SystemHomeEnergy.MODELS;
 using SystemHomeEnergy.DALL.Repositorios.Contrato;
 using SystemHomeEnergy.DALL.Repositorios;
 using SystemHomeEnergy.UTILITY;
-
+using SystemHomeEnergy.DLL.Servicios;
+using SystemHomeEnergy.DLL.Servicios.Contrato;
+using SystemHomeEnergy.DLL.Estados;
 
 namespace SystemHomeEnergy.IOC
 {
@@ -26,6 +28,18 @@ namespace SystemHomeEnergy.IOC
             services.AddTransient(typeof(IGenericRepository<>),typeof(GenericRepository<>));
             services.AddScoped<IVentaRepository,VentaRepository>();
             services.AddAutoMapper(typeof(AutoMapperProfile));
+            services.AddScoped<IRolService, RolService>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
+            services.AddScoped<IServicioService, ServicioService>();
+            services.AddScoped<ICotizacionService, CotizacionService>();
+            services.AddScoped<IDashBoardService, DashBoardService>();
+            services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<IEstadoService, EstadoService>();
+            services.AddScoped<IMenuService, MenuService>();
+            services.AddScoped<IProspectoService, ProspectoService>();
+            services.AddScoped<DbContext, BdhomeEnergyContext>();
+
 
 
         }

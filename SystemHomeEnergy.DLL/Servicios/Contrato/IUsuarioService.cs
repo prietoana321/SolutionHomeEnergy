@@ -9,11 +9,11 @@ namespace SystemHomeEnergy.DLL.Servicios.Contrato
 {
     public interface IUsuarioService
     {
-        Task<List<UsuarioDTO>> lista();
+        Task<List<UsuarioDTO>> Lista();
 
-        Task<SesionDTO> validarCredenciales(string correo, string clave);
+        Task<SesionDTO> ValidarCredenciales(string correo, string clave);
 
-        Task<UsuarioDTO> crear(UsuarioDTO modelo);
+        Task<UsuarioDTO> Crear(UsuarioDTO modelo);
         Task<bool> Editar(UsuarioDTO modelo);
         Task<bool> Eliminar(int Id);
 

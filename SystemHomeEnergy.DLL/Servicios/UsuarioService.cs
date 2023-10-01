@@ -23,7 +23,7 @@ namespace SystemHomeEnergy.DLL.Servicios
             _usuarioRepositorio = usuarioRepositorio;
             this._mapper = mapper;
         }
-        public async Task<List<UsuarioDTO>> lista()
+        public async Task<List<UsuarioDTO>> Lista()
         {
             try 
             {
@@ -34,7 +34,7 @@ namespace SystemHomeEnergy.DLL.Servicios
             catch
             { throw; }
         }
-        public async Task<SesionDTO> validarCredenciales(string correo, string clave)
+        public async Task<SesionDTO> ValidarCredenciales(string correo, string clave)
         {
             try
             {
@@ -125,10 +125,6 @@ namespace SystemHomeEnergy.DLL.Servicios
             }
         }
 
-        public Task<UsuarioDTO> crear(UsuarioDTO modelo)
-        {
-            throw new NotImplementedException();
-        }
     }
     
 }
