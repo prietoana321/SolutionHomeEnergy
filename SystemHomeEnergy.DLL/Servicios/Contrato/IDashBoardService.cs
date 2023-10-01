@@ -7,12 +7,8 @@ using SystemHomeEnergy.DTO;
 
 namespace SystemHomeEnergy.DLL.Servicios.Contrato
 {
-    public interface IClienteService
+   public interface IDashBoardService
     {
-        Task<List<ClienteDTO>> Lista();
-
-        Task<ClienteDTO> Crear(ClienteDTO modelo);
-        Task<bool> Editar(ClienteDTO modelo);
-        Task<bool> Eliminar(int Id);
+        Task<DashBoardDTO> Resumen();
     }
 }

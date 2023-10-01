@@ -17,13 +17,20 @@ namespace SystemHomeEnergy.DLL.Servicios
     {
         private readonly IVentaRepository _contratoRepositorio;
         private readonly IGenericRepository<Contratos> _contratosRepositorio;
+        private readonly IGenericRepository<UsuarioCotizacion> _usuarioCotizacionRepositorio;
+        private readonly IGenericRepository<Usuario> _usuarioRepositorio;
+        private readonly IGenericRepository<ServicioCotizacion> _servicioCotizacionRepositorio;
+        private readonly IGenericRepository<Servicio> _servicioRepositorio;
         private readonly IMapper _mapper;
 
-
-        public CotizacionService(IVentaRepository contratoRepositorio, IGenericRepository<Contratos> contratosRepositorio, IMapper mapper)
+        public CotizacionService(IVentaRepository contratoRepositorio, IGenericRepository<Contratos> contratosRepositorio, IGenericRepository<UsuarioCotizacion> usuarioCotizacionRepositorio, IGenericRepository<Usuario> usuarioRepositorio, IGenericRepository<ServicioCotizacion> servicioCotizacionRepositorio, IGenericRepository<Servicio> servicioRepositorio, IMapper mapper)
         {
-            this._contratosRepositorio = contratosRepositorio;
-            this._contratosRepositorio = contratosRepositorio;
+            _contratoRepositorio = contratoRepositorio;
+            _contratosRepositorio = contratosRepositorio;
+            _usuarioCotizacionRepositorio = usuarioCotizacionRepositorio;
+            _usuarioRepositorio = usuarioRepositorio;
+            _servicioCotizacionRepositorio = servicioCotizacionRepositorio;
+            _servicioRepositorio = servicioRepositorio;
             _mapper = mapper;
         }
 
@@ -57,7 +64,53 @@ namespace SystemHomeEnergy.DLL.Servicios
             }
             return _mapper.Map<List<CotizacionDTO>>(listaResultado);
         }
+        /*
+        public async Task<List<CotizacionDTO>> Lista(int IdUsuario)
 
+        {
+            IQueryable<Usuario> tbUsuario = await _usuarioRepositorio.Consultar(u => u.IdUsuario == IdUsuario);
+            IQueryable<UsuarioCotizacion> tbUsuarioCotizacion = await _usuarioCotizacionRepositorio.Consultar();
+            IQueryable<Contratos> tbContratos = await _contratosRepositorio.Consultar();
+
+            try
+            {
+                IQueryable<Menu> tbResultado = (from u in tbContratos
+                                                join mr in tbUsuarioCotizacion on u.Contrato equals mr.IdCotizacion1
+                                                join m in tbUsuario on mr.IdUsuario equals m.IdUsuario
+                                                select m).AsQueryable();
+
+                var listaUsuarios = tbResultado.ToList();
+                return _mapper.Map<List<CotizacionDTO>>(listaUsuarios);
+               
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public async Task<List<CotizacionDTO>> ListaServicio(int IdServicio)
+        {
+            IQueryable<Servicio> tbServicio = await _servicioRepositorio.Consultar(u => u.IdServicio == IdServicio);
+            IQueryable<ServicioCotizacion> tbServicioCotizacion = await _servicioCotizacionRepositorio.Consultar();
+            IQueryable<Contratos> tbCotizacion = await _contratosRepositorio.Consultar();
+
+            try
+            {
+                IQueryable<Menu> tbResultado = (from u in tbServicio
+                                                join mr in tbServicioCotizacion on u.IdServicio equals mr.IdServicio1
+                                                join m in tbCotizacion on mr.IdCotizacion equals m.IdCotizacion
+                                                select m).AsQueryable();
+                var listaServicios = tbResultado.ToList();
+
+                return _mapper.Map<List<CotizacionDTO>>(listaServicios);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        */
         public async Task<CotizacionDTO> Registrar(CotizacionDTO modelo)
         {
             try
@@ -119,5 +172,6 @@ namespace SystemHomeEnergy.DLL.Servicios
             return _mapper.Map<List<ReporteDTO>>(listaResultado);
 
         }
+        
     }
 }

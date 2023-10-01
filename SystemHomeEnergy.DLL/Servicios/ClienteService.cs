@@ -23,7 +23,7 @@ namespace SystemHomeEnergy.DLL.Servicios
             _clienteRepositorio = clienteRepositorio;
             _mapper = mapper;
         }
-        public async Task<List<ClienteDTO>> lista()
+        public async Task<List<ClienteDTO>> Lista()
         {
             try
             {
@@ -113,6 +113,6 @@ namespace SystemHomeEnergy.DLL.Servicios
             }
         }
 
-       
+        
     }
 }

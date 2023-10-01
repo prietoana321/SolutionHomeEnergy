@@ -4,15 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SystemHomeEnergy.DTO;
-using SystemHomeEnergy.MODELS;
 
 namespace SystemHomeEnergy.DLL.Servicios.Contrato
 {
-    public interface IProspectoService
+    public interface IEstadoService
     {
-        Task<List<ProspectoDTO>> Lista();
-        Task<ProspectoDTO> Crear(ProspectoDTO modelo);
-        Task<bool> Editar(ProspectoDTO modelo);
+        Task<List<EstadoDTO>> Lista();
+        Task<EstadoDTO> Crear(EstadoDTO modelo);
+        Task<bool> Editar(EstadoDTO modelo);
         Task<bool> Eliminar(int Id);
     }
 }

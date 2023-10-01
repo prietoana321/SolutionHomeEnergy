@@ -10,6 +10,6 @@ namespace SystemHomeEnergy.DTO
     {
         public int? TotalContratos { get; set; }
         public string? TotalIngresos { get; set; }
-        public List<CotizacionSemanaDTO>CotizacionUltimaSemana { get; set; }
+        public List<CotizacionSemanaDTO>CotizacionesUltimaSemana { get; set; }
     }
 }
