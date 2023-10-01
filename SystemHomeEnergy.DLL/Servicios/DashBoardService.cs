@@ -115,13 +115,13 @@ namespace SystemHomeEnergy.DLL.Servicios
                         TotalSemana = item.Value
                     });
                 }
-                vmDashboard.CotizacionUltimaSemana = listaVentaSemana;
+                vmDashboard.CotizacionesUltimaSemana = listaVentaSemana;
             }
             catch
             {
                 throw;
             }
             return vmDashboard;
-    }
+        }
     }
 }
