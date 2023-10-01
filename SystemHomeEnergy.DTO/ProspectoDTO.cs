@@ -27,7 +27,5 @@ namespace SystemHomeEnergy.DTO
         public string? Detalle { get; set; }
 
         public bool? EsActivo { get; set; }
-
-        public DateTime? Fecha { get; set; }
     }
 }
