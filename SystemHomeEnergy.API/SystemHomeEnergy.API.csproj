@@ -17,8 +17,4 @@
     <ProjectReference Include="..\SystemHomeEnergy.IOC\SystemHomeEnergy.IOC.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>
