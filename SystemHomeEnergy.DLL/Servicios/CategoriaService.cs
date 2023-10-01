@@ -22,7 +22,7 @@ namespace SystemHomeEnergy.DLL.Servicios
             this.mapper = mapper;
         }
 
-        public async Task<List<CategoriaDTO>> lista()
+        public async Task<List<CategoriaDTO>> Lista()
         {
             try
             {

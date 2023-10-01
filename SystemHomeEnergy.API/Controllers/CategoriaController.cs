@@ -25,7 +25,7 @@ namespace SystemHomeEnergy.API.Controllers
             try
             {
                 rsp.Status = true;
-                rsp.Value = await _categoriaServicio.lista();
+                rsp.Value = await _categoriaServicio.Lista();
             }
 
             catch (Exception ex)

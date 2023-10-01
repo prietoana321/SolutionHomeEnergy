@@ -9,6 +9,6 @@ namespace SystemHomeEnergy.DLL.Servicios.Contrato
 {
     public interface ICategoriaService
     {
-        Task<List<CategoriaDTO>> lista();
+        Task<List<CategoriaDTO>> Lista();
     }
 }

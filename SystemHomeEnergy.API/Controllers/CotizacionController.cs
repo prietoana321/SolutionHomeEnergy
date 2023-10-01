@@ -22,11 +22,11 @@ namespace SystemHomeEnergy.API.Controllers
         [Route("Registrar")]
         public async Task<IActionResult> Registrar([FromBody] CotizacionDTO cotizacion)
         {
-            var rsp = new Response<List<CotizacionDTO>>();
+            var rsp = new Response<CotizacionDTO>();
             try
             {
                 rsp.Status = true;
-                rsp.Value = await _cotizacionServicio.Registrar (cotizacion);
+                rsp.Value = await _cotizacionServicio.Registrar(cotizacion);
             }
 
             catch (Exception ex)
@@ -64,14 +64,13 @@ namespace SystemHomeEnergy.API.Controllers
         [HttpGet]
         [Route("Reporte")]
 
-        public async Task<IActionResult> Reporte(string buscarpor, string? numerocotizacion, string? fechaInicio, string? fechaFin)
+        public async Task<IActionResult> Reporte(string? fechaInicio, string? fechaFin)
         {
-            var rsp = new Response<List<CotizacionDTO>>();
-           
+            var rsp = new Response<List<ReporteDTO>>();
             try
             {
                 rsp.Status = true;
-                rsp.Value = await _cotizacionServicio.Reporte(string? fechaInicio, string? fechaFin);
+                rsp.Value = await _cotizacionServicio.Reporte(fechaInicio, fechaFin);
             }
             catch (Exception ex)
             {
