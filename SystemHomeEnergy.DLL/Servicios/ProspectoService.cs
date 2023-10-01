@@ -54,62 +54,26 @@ namespace SystemHomeEnergy.DLL.Servicios
             }
         }
 
-        public async Task<bool> Editar(ProspectoDTO modelo)
+        public Task<ProspectoDTO> Crear(ProspectoDTO modelo)
         {
-            try
-            {
-                var prospectoModelo = _mapper.Map<Prospecto>(modelo);
-                var prospectoEncontrado = await _prospectoRepositorio.Obtener(u => u.IdProspecto == prospectoModelo.IdProspecto);
-                if (prospectoEncontrado == null)
-                {
-                    throw new TaskCanceledException("prospecto no existe");
-                }
-
-                prospectoEncontrado.Fachadaimg = prospectoModelo.Fachadaimg;
-                prospectoEncontrado.Url = prospectoModelo.Url;
-                prospectoEncontrado.NombreCompleto = prospectoModelo.NombreCompleto;
-                prospectoEncontrado.Direccion = prospectoModelo.Direccion;
-                prospectoEncontrado.Contacto = prospectoModelo.Contacto;
-                prospectoEncontrado.RazonSocial = prospectoModelo.RazonSocial;
-                prospectoEncontrado.Idauditor = prospectoModelo.Idauditor;
-                prospectoEncontrado.Detalle = prospectoEncontrado.Detalle;
-                prospectoEncontrado.EsActivo = prospectoEncontrado.EsActivo;
-
-                bool respuesta = await _prospectoRepositorio.Editar(prospectoEncontrado);
-
-                if (respuesta == false)
-                {
-                    throw new TaskCanceledException("No se pudo editar");
-                }
-                return respuesta;
-            }
-            catch
-            {
-                throw;
-            }
+            throw new NotImplementedException();
         }
 
-        public async Task<bool> Eliminar(int Id)
+        public Task<bool> Editar(ProspectoDTO modelo)
         {
-            try
-            {
-                var prospectoEncontrado = await _prospectoRepositorio.Obtener(v => v.IdProspecto == Id);
-                if (prospectoEncontrado == null)
-                {
-                    throw new TaskCanceledException("El prospecto no existe");
-                }
-                bool respuesta = await _prospectoRepositorio.Eliminar(prospectoEncontrado);
-                if (respuesta == false)
-                {
-                    throw new TaskCanceledException("No se pudo eliminar");
-                }
-                return respuesta;
-            }
-            catch
-            {
-                throw;
-            }
+            throw new NotImplementedException();
         }
+
+        public Task<bool> Eliminar(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<Prospecto>> lista()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
 
