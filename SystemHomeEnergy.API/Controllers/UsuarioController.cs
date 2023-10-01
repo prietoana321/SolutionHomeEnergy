@@ -77,6 +77,48 @@ namespace SystemHomeEnergy.API.Controllers
             //TODAS LOS SOLICITUDES SERÁN RESPUESTAS EXITOSAS
             return Ok(rsp);
         }
+        [HttpPost]
+        [Route("Editar")]
+
+        public async Task<IActionResult> Editar([FromBody] UsuarioDTO usuario)
+        {
+            var rsp = new Response<bool>();
+
+            try
+            {
+                rsp.Status = true;
+                rsp.Value = await _usuarioServicio.Editar(usuario);
+            }
+
+            catch (Exception ex)
+            {
+                rsp.Status = false;
+                rsp.msg = ex.Message;
+            }
+            //TODAS LOS SOLICITUDES SERÁN RESPUESTAS EXITOSAS
+            return Ok(rsp);
+        }
+        [HttpPost]
+        [Route("Eliminar /{Id: int}")]
+
+        public async Task<IActionResult>Eliminar(int Id)
+        {
+            var rsp = new Response<bool>();
+
+            try
+            {
+                rsp.Status = true;
+                rsp.Value = await _usuarioServicio.Eliminar(Id);
+            }
+
+            catch (Exception ex)
+            {
+                rsp.Status = false;
+                rsp.msg = ex.Message;
+            }
+            //TODAS LOS SOLICITUDES SERÁN RESPUESTAS EXITOSAS
+            return Ok(rsp);
+        }
     }
 }
 
