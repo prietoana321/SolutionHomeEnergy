@@ -12,7 +12,7 @@ using SystemHomeEnergy.MODELS;
 
 namespace SystemHomeEnergy.DLL.Servicios
 {
-    public class ProspectoService: IProspectoService
+    public class ProspectoService : IProspectoService
     {
         private readonly IGenericRepository<Prospecto> _prospectoRepositorio;
         private readonly IMapper _mapper;
@@ -54,24 +54,61 @@ namespace SystemHomeEnergy.DLL.Servicios
             }
         }
 
-        public Task<ProspectoDTO> Crear(ProspectoDTO modelo)
+        public async Task<bool> Editar(ProspectoDTO modelo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var ProspectoModelo = _mapper.Map<Prospecto>(modelo);
+                var ProspectoEncontrado = await _prospectoRepositorio.Obtener(u => u.IdProspecto == ProspectoModelo.IdProspecto);
+                if (ProspectoEncontrado == null)
+                {
+                    throw new TaskCanceledException("Prospecto no existe");
+                }
+
+                ProspectoEncontrado.Fachadaimg = ProspectoModelo.Fachadaimg;
+                ProspectoEncontrado.Url = ProspectoModelo.Url;
+                ProspectoEncontrado.NombreCompleto = ProspectoModelo.NombreCompleto;
+                ProspectoEncontrado.Direccion = ProspectoModelo.Direccion;
+                ProspectoEncontrado.Contacto = ProspectoModelo.Contacto;
+                ProspectoEncontrado.RazonSocial = ProspectoModelo.RazonSocial;
+                ProspectoEncontrado.Idauditor = ProspectoModelo.Idauditor;
+                ProspectoEncontrado.Detalle = ProspectoEncontrado.Detalle;
+                ProspectoEncontrado.EsActivo = ProspectoEncontrado.EsActivo;
+
+                bool respuesta = await _prospectoRepositorio.Editar(ProspectoEncontrado);
+
+                if (respuesta == false)
+                {
+                    throw new TaskCanceledException("No se pudo editar");
+                }
+                return respuesta;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
-        public Task<bool> Editar(ProspectoDTO modelo)
+        public async Task<bool> Eliminar(int Id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> Eliminar(int Id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Prospecto>> lista()
-        {
-            throw new NotImplementedException();
+            try
+            {
+                var ProspectoEncontrado = await _prospectoRepositorio.Obtener(v => v.IdProspecto == Id);
+                if (ProspectoEncontrado == null)
+                {
+                    throw new TaskCanceledException("El Prospecto no existe");
+                }
+                bool respuesta = await _prospectoRepositorio.Eliminar(ProspectoEncontrado);
+                if (respuesta == false)
+                {
+                    throw new TaskCanceledException("No se pudo eliminar");
+                }
+                return respuesta;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
     }

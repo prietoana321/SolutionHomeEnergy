@@ -66,7 +66,7 @@ namespace SystemHomeEnergy.DLL.Servicios
                 {
                     throw new TaskCanceledException("Cliente no existe");
                 }
-                
+
                 clienteEncontrado.Fachadaimg = clienteModelo.Fachadaimg;
                 clienteEncontrado.Url = clienteModelo.Url;
                 clienteEncontrado.NombreCompleto = clienteModelo.NombreCompleto;
@@ -77,7 +77,7 @@ namespace SystemHomeEnergy.DLL.Servicios
                 clienteEncontrado.Detalle = clienteEncontrado.Detalle;
                 clienteEncontrado.EsActivo = clienteEncontrado.EsActivo;
 
-                 bool respuesta = await _clienteRepositorio.Editar(clienteEncontrado);
+                bool respuesta = await _clienteRepositorio.Editar(clienteEncontrado);
 
                 if (respuesta == false)
                 {
