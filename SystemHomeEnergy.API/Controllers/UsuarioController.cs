@@ -16,6 +16,25 @@ namespace SystemHomeEnergy.API.Controllers
         {
             _usuarioServicio = usuarioServicio;
         }
+
+        public async Task<IActionResult> Lista()
+        {
+            var rsp = new Response<List<UsuarioDTO>>();
+
+            try
+            {
+                rsp.Status = true;
+                rsp.Value = await _usuarioServicio.Lista();
+            }
+
+            catch (Exception ex)
+            {
+                rsp.Status = false;
+                rsp.msg = ex.Message;
+            }
+            //TODAS LOS SOLICITUDES SERÁN RESPUESTAS EXITOSAS
+            return Ok(rsp);
+        }
     }
 }
 
